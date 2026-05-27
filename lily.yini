@@ -11,6 +11,6 @@ audio: {
 	enable: false
 }
 
-engine_version: "0.3.33"
+engine_version: "0.3.34"
 engine_asset_dir: lily/
 
