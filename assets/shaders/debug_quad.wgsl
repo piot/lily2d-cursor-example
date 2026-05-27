@@ -28,7 +28,7 @@ fn vs_main(
 
   // "centered" quad (two triangles)
   // CCW vertices, assumes RH projection.
-  var positions = array<vec2<f32>, 6>(
+  const POSITIONS = array<vec2<f32>, 6>(
       vec2<f32>(-0.5, -0.5),
       vec2<f32>( 0.5, -0.5),
       vec2<f32>(-0.5,  0.5),
@@ -38,7 +38,7 @@ fn vs_main(
       vec2<f32>( 0.5,  0.5),
   );
 
-  let world_pos = pos + positions[vertex_index] * size;
+  let world_pos = pos + POSITIONS[vertex_index] * size;
 
   var out : VSOut;
   out.position = debug_quad.view_proj * vec4<f32>(world_pos, 0.0, 1.0);
