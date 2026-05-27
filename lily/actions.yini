@@ -1,0 +1,6 @@
+action_sets: {
+    SpaceCraft: {
+        cursor_pos: :cursor # we want absolute positions
+        fire: :button
+    }
+}

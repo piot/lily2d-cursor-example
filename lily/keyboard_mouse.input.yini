@@ -1,0 +1,6 @@
+bindings: {
+    SpaceCraft: {
+        cursor_pos: :mouse_cursor # absolute mouse cursor positions
+        fire: :mouse_button(left)
+    }
+}
