@@ -1,5 +1,6 @@
 name: Mouse Cursor Example
 
+compiler_version: "0.5.3"
 extension: sw
 
 artifact: {
@@ -10,5 +11,5 @@ artifact: {
 assets_dir: assets/
 
 dependencies: {
-	lily: "0.3.34"
+	lily: "0.3.40" # should match the version in lily.yini
 }

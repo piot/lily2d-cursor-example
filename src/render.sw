@@ -66,10 +66,23 @@ impl ExampleRender {
             step_mode: Instance
         }
 
+        debug_quad_pipeline_options := wgpu::RenderPipelineOptions {
+            blend_mode: Alpha
+            cull_mode: Back
+            enable_depth: false
+            topology: TriangleList
+            depth_format: Depth24Plus
+            depth_write_enabled: false
+            depth_compare: Less
+            depth_bias_constant: 0
+            depth_bias_slope_scale: 0.0
+            depth_bias_clamp: 0.0
+        }
+
         debug_quad_pipeline := wgpu::create_render_pipeline(
             debug_quad_pipeline_layout,
              [debug_instance_buffer_layout],
-              @shaders/debug_quad.wgsl, Alpha, Back, false, 'debug quad pipeline')
+              @shaders/debug_quad.wgsl, debug_quad_pipeline_options, 'debug quad pipeline')
 
 
         sprite_view_proj := gm::Mat4::ortho_2d_int(256, 256, 1.0).to_mat4f()
@@ -102,11 +115,10 @@ impl ExampleRender {
 
     #[host_call]
     fn render(mut self, sim: ExampleSimulation) {
-        normalized_int_time := sim.time % 62800
-        normalized_float_time := (normalized_int_time.float() * 0.1)
+        // normalized_int_time := sim.time % 62800
+        // normalized_float_time := (normalized_int_time.float() * 0.1)
 
         screen_width, screen_height = wgpu::surface_extent()
-
 
         sprite_view_proj := gm::Mat4::ortho_2d_pixel_near_far_int(screen_width, screen_height, 0, 100).to_mat4f()
         debug_uniform := DebugQuadUniform {
@@ -144,7 +156,7 @@ impl ExampleRender {
     }
 
     #[host_call]
-    fn resize(mut self) {
+    fn resize(mut _self) {
         
     }
 }

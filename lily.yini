@@ -1,16 +1,14 @@
-name: font example
+name: Mouse Cursor Example
 render: {
     mode: :windowed{
         width: 640
         height: 480
     }
-    scale: 1
 }
 
 audio: {
 	enable: false
 }
 
-engine_version: "0.3.34"
+engine_version: "0.3.40"
 engine_asset_dir: lily/
-
